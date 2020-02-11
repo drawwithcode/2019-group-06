@@ -10,17 +10,17 @@ var database;
 var shouldIdraw = false;
 var myLat, myLon;
 // cambiare coordinate per città, sono sotto
-var swuno = 9.059298 // MILANO
-var swdue = 45.385749
-var neuno = 9.304870
-var nedue = 45.541406
+var swuno = 1.019649 // CANTERBURY
+var swdue = 51.249429
+var neuno = 1.151313
+var nedue = 51.309454
 
 const watchOptions = {
   enableHighAccuracy: true,
   maximumAge: 0
 };
 
-var colorList = ['red', 'blue', 'yellow', 'white', 'black']
+var colorList = ['red', 'blue', 'yellow', 'green', 'black', 'purple']
 const mappa = new Mappa('MapboxGL', "pk.eyJ1IjoiYW5kcmVhYmVuZWRldHRpIiwiYSI6ImNqNWh2eGh3ejFqOG8zM3BrZjRucGZkOGEifQ.SmdBpUoSe3s0tm-OTDFY9Q")
 var bounds = [
   [swuno, swdue], // SW coordinates
@@ -64,9 +64,6 @@ function preload() {
 function positionChanged(position) {
   myLat = position.latitude;
   myLon = position.longitude;
-  if (shouldIdraw == true) {
-
-  } else {}
 }
 
 function setup() {
@@ -95,7 +92,7 @@ function setup() {
 
     var pos = data.val();
     var keys = Object.keys(pos)
-    for (var i = 0; i<keys.length; i++) {
+    for (var i = 0; i < keys.length; i++) {
       var k = keys[i];
       var lat = pos[k].lat
       var lon = pos[k].lon
@@ -105,7 +102,7 @@ function setup() {
       var get = myMap.latLngToPixel(lat, lon);
       noStroke()
       fill(colorList[col])
-      circle(get.x,get.y,rad)
+      circle(get.x, get.y, rad)
 
     }
   }
