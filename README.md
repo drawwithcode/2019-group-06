@@ -57,15 +57,15 @@ Firebase is a website that works as a bridge between pages of the app and lets t
 **Basic canvas structure (map)**</br>
 We had to set up the main canvas of the tracking page, where the user can walk around, and the results page: we used MapBox to set up a map, and it wasn’t easy to set it up properly. We wanted to have an interactive map, but with our own knowledge we couldn’t merge the interactive map with the drawing canvas; moving the map around would have left a track on the canvas, ruining the experience. We looked everywhere for a solution to this problem, but in the end we couldn’t find one. That’s why we choose to lock the zoom and the viewport, and we tried to go that way.
 
-We first loaded what we needed in the index:
-</br>
+We first loaded what we needed in the index:</br>
  ``` ruby
     <script src="p5.geolocation.js"></script>
     <script src="https://unpkg.com/mappa-mundi/dist/mappa.js" type="text/javascript"></script>
  ```
 </br>
-Then in the sketch we overlayed the map over the canvas:
-</br>
+Then in the sketch we overlayed the map over the canvas:</br>
+ 
+ 
   ``` ruby
      myMap = mappa.tileMap(options);
    myMap.overlay(canvas)
@@ -73,32 +73,31 @@ Then in the sketch we overlayed the map over the canvas:
  </br>
 </br>
 In this way we were able to draw on the canvas over the map.
-We needed then to write a dot where the location was represented on the map, representing the user location:
-</br>
+We needed then to write a dot where the location was represented on the map, representing the user location:</br>
  ``` ruby
       var point = myMap.latLngToPixel(myLat, myLon)
    
    radius = 15;
    circle(point.x, point.y, radius)
   ```
- </br> 
-But we also needed to collect the location by the user:
-</br>
+  
+But we also needed to collect the location by the user:</br>
 
  ``` ruby
 function preload() {
   milano = loadImage("./mappaMilano.png")
+
   //updates location everytime there's a new one
   position = watchPosition(positionChanged);
 }
+
 function positionChanged(position) {
   myLat = position.latitude;
   myLon = position.longitude;
   }
  ```
 </br>
-</br>
-</br>
+
 **Home page functions?**</br>
 WRITE HERE ABOUT HOMEPAGE FUNCTIONS
 </br>
@@ -116,33 +115,41 @@ We choose this font due to his spirit and history: IBM Plex was designed to illu
 **Colors**</br>
 ![colors1](assets/colors1.png)</br>
 We used to different tonality of grey: the light one as a background, and the darker for details and writes.</br>
+
 ***Light Gray***</br>
 R: 223 </br>
 G: 225 </br>
 B: 229 </br>
+
 ***Dark Gray***</br>
 R: 89 </br>
 G: 89 </br>
 B: 89</br>
 </br>
+
 ![colors2](assets/colors2.png)</br>
 We decided to use five different colors: a vibrant green and a vibrant purple and the three primary colors. </br>
+
 ***Yellow***</br>
 R: 255 </br>
 G: 219 </br>
 B: 39 </br>
+
 ***Blue***</br>
 R: 49 </br>
 G: 39 </br>
 B: 255 </br>
+
 ***Red***</br>
 R: 239 </br>
 G: 27 </br>
 B: 27 </br>
+
 ***Green***</br>
 R: 45 </br>
 G: 201 </br>
 B: 67 </br>
+
 ***Purple***</br>
 R: 131 </br>
 G: 61 </br>
@@ -154,17 +161,20 @@ Those are the references we used to build up our web-app:
 - [Painted Earth by Moniker Studio](https://studiomoniker.com/projects/painted-earth)</br>
  [MoMa app by Moma NY](https://apps.apple.com/us/app/moma/id383990455)
 </br>
+
 ### Interactions</br>
 **Homepage**</br>
-asfg</br>
+The homepage doesn't include any interaction, except for the button that brings the users to the "How to Play" section of the app.</br></br>
 **Map page**</br>
 The users can choose a color among the selected palette; when they choose it, the circle that indicates their position change color. </br> At this point, they can start walking, moving around the city and leaving a colorful track. At the end, they have to press the button "stop" that is linked to the page that contains the whole map of their city. Here, they can see the track that they have left and also the other users' ones.</br> </br>
 **Results page**</br>
-asdfgh</br>
+The result page, as written before, shows all the drawings left by the users. </br>
 </br>
 ### Developers</br>
 [Agnese Bartolucci](), [Giulia Proserpio](), [Lorenzo Sala](), [Barbara Vanoli]()
+
 ### Course details</br>
 **Teachers:** Michele Mauri, Andrea Benedetti
+
 This repository is the starting point of the assignments given in the elective course [Creative Coding at Politecnico di Milano](https://www11.ceda.polimi.it/schedaincarico/schedaincarico/controller/scheda_pubblica/SchedaPublic.do?&evn_default=evento&c_classe=696598&__pj0=0&__pj1=3ed8420c42c849845b5caa3de626e8fc).</br>
 Browse [this website](https://drawwithcode.github.io/) if you want to know more about it.
