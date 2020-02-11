@@ -124,7 +124,8 @@ B: 242 </br>
 <ul>
   <li>Painted Earth by Moniker Studio </li>
   <li>MoMa app by MoMa NY </li>
-  <li>[The YouTube channel] *[The Coding Train]* (https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw) </li>
+  
+  <li>The YouTube channel [The Coding Train](https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw/) </li>
 
 </ul>
 
