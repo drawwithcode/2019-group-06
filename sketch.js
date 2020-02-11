@@ -71,7 +71,7 @@ function positionChanged(position) {
 
 function setup() {
   canvas = createCanvas(windowWidth, windowHeight)
-  exit = new circle(windowWidth / 12, height - (75 + windowWidth / 12), 65);
+  exit = new Circ(windowWidth / 12, height - (75 + windowWidth / 12), 65);
 
 
   const firebaseConfig = {
@@ -136,7 +136,7 @@ function draw() {
 }
 //il rettangolo a cui applicare la variabile shouldIdraw falsa e a cui
 //collegare la pagina successiva
-function Rect(_x, _y, rad) {
+function Circ(_x, _y, rad) {
   this.x = _x;
   this.y = _y;
   this.size = rad;
