@@ -43,15 +43,15 @@ For this first version of the app, people can choose among a range of five colou
 </br>
 </br>
 ### Technologies and libraries
-**GPS**
-Due to the GPS location collection it’s possible to register the drawings on the map
-**Mapbox**
-Mapbox is a tool which can be used to create maps for web-apps 
-**p5.js**
-The javascript library p5 allows us to write easily the code, in a creative way
-**Firebase**
-Firebase is a website that works as a bridge between pages of the app and lets the app collect datas and stores them in an online server
-**JavaScript & Html**
+**GPS**</br>
+Due to the GPS location collection it’s possible to register the drawings on the map</br>
+**Mapbox**</br>
+Mapbox is a tool which can be used to create maps for web-apps </br>
+**p5.js**</br>
+The javascript library p5 allows us to write easily the code, in a creative way</br>
+**Firebase**</br>
+Firebase is a website that works as a bridge between pages of the app and lets the app collect datas and stores them in an online server</br>
+**JavaScript & Html**</br>
 </br>
 </br>
 ### Code challenges
