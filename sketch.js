@@ -10,10 +10,10 @@ var database;
 var shouldIdraw = false;
 var myLat, myLon;
 // cambiare coordinate per città, sono sotto
-var swuno = 1.019649 // CANTERBURY
-var swdue = 51.249429
-var neuno = 1.151313
-var nedue = 51.309454
+var swuno = 9.059298 // MILANO
+var swdue = 45.385749
+var neuno = 9.304870
+var nedue = 45.541406
 
 const watchOptions = {
   enableHighAccuracy: true,
@@ -47,7 +47,7 @@ var bounds = [
 const options = {
   // lat: 45.4689727,
   // lng: 9.1895752,
-  zoom: 17,
+  zoom: 15,
   interactive: false,
   style: "mapbox://styles/mapbox/dark-v8",
   pitch: 10,
@@ -187,6 +187,6 @@ function mouseClicked() {
 }
 
 
-//function touchEnded(event) {
+// function touchEnded(event) {
 //  DeviceOrientationEvent.requestPermission()
-//}
+// }
