@@ -10,6 +10,7 @@
   <li> Code challenges </li>
   <li> Visual </li>
   <li> Inspiraton and references </li>
+  <li> Interactions </li>
   <li> Course details </li>
   <li> Developers </li>
 </ol>
@@ -121,11 +122,19 @@ B: 242 </br>
 
 </br>
 ### Inspiration and references
-
+Those are the references we used to build up our web-app:
 YouTube channel *[The Coding Train](https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw/)*</br>
 [Painted Earth by Moniker Studio](https://studiomoniker.com/projects/painted-earth)</br>
-[MoMa app by Moma NY](https://apps.apple.com/us/app/moma/id383990455)</br>
+[MoMa app by Moma NY](https://apps.apple.com/us/app/moma/id383990455)
+</br>
 
+### Interactions
+<ul>
+  <li>
+    **Shapes**
+    sk
+  </li>
+  </ul>
 
 ### Developers
 [Agnese Bartolucci](), [Giulia Proserpio](), [Lorenzo Sala](), [Barbara Vanoli]()
