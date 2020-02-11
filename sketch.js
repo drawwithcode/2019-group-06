@@ -49,8 +49,6 @@ var bounds = [
 
 //map options
 const options = {
-  // lat: 45.4689727,
-  // lng: 9.1895752,
   zoom: 17,
   interactive: false,
   style: "mapbox://styles/mapbox/dark-v8",
@@ -79,7 +77,7 @@ function setup() {
   canvas = createCanvas(windowWidth, windowHeight)
   exit = new Circ(windowWidth / 12, height - (75 + windowWidth / 12), 65);
 
-//setting up firebase
+  //setting up firebase
   const firebaseConfig = {
     apiKey: "AIzaSyC-fiV18ijZctY5WrQIllaZmQnNQ7FKf10",
     authDomain: "mapstract-74411.firebaseapp.com",
@@ -101,7 +99,7 @@ function setup() {
   myMap = mappa.tileMap(options);
   myMap.overlay(canvas)
 
-//color choice buttons position
+  //color choice buttons position
   redx = windowWidth * 1 / 6
   redy = windowHeight * 9.9 / 10
   blux = windowWidth * 2 / 6
@@ -128,17 +126,16 @@ function draw() {
   noStroke()
 
   exit.display();
-//converts coordinates to pixels
+  //converts coordinates to pixels
   var point = myMap.latLngToPixel(myLat, myLon)
-    //drawing location
-    if (shouldIdraw==true) {
-  fill(colorList[listpick])
-  radius = 15;
-  circle(point.x, point.y, radius)
-} else {
-}
+  //drawing location
+  if (shouldIdraw == true) {
+    fill(colorList[listpick])
+    radius = 15;
+    circle(point.x, point.y, radius)
+  } else {}
 
-//buttons choice color
+  //buttons choice color
   fill('red')
   rect(windowWidth - (radc), windowHeight / 10, radc * 2, windowHeight / 5)
   fill('yellow')
@@ -150,6 +147,7 @@ function draw() {
   fill('purple')
   rect(windowWidth - (radc), windowHeight * 9 / 10, radc * 2, windowHeight / 5)
 }
+
 //il rettangolo a cui applicare la variabile shouldIdraw falsa e a cui
 //collegare la pagina successiva
 function Circ(_x, _y, rad) {
@@ -168,8 +166,6 @@ function Circ(_x, _y, rad) {
     shouldIdraw = false;
     window.open('./index_result.html', '_self')
   }
-
-
 }
 
 //sends points datas to the server
@@ -194,21 +190,18 @@ function mouseClicked() {
     listpick = 2;
     shouldIdraw = true;
   } else
-   if (mouseY > windowHeight * 4 / 5 && (mouseX > (windowWidth - (radc * 2)))) {
+  if (mouseY > windowHeight * 4 / 5 && (mouseX > (windowWidth - (radc * 2)))) {
     listpick = 5;
     shouldIdraw = true
-
-  } else if (mouseY > windowHeight * 3 / 5 && (mouseX > (windowWidth - (radc * 2)))) {
+  } else
+  if (mouseY > windowHeight * 3 / 5 && (mouseX > (windowWidth - (radc * 2)))) {
     listpick = 3;
     shouldIdraw = true
-
-  } else if (mouseY > windowHeight * 2 / 5 && (mouseX > (windowWidth - (radc * 2)))) {
+  } else
+  if (mouseY > windowHeight * 2 / 5 && (mouseX > (windowWidth - (radc * 2)))) {
     listpick = 1;
     shouldIdraw = true
-
-  } else{
-
-  }
+  } else {}
 }
 
 

@@ -1,19 +1,17 @@
 let myMap;
 let canvas;
-let posx, posy;
-var position, radius;
-var value = 0;
+var position;
 var listpick = 4;
 var lat, lon, col, rad;
 var exit, ref;
 var database;
 var shouldIdraw = false;
 var myLat, myLon;
-// cambiare coordinate per città, sono sotto
-var swuno = 1.019649 // CANTERBURY
-var swdue = 51.249429
-var neuno = 1.151313
-var nedue = 51.309454
+//same as other sketch
+var swuno = 9.059298 // MILANO
+var swdue = 45.385749
+var neuno = 9.304870
+var nedue = 45.541406
 
 const watchOptions = {
   enableHighAccuracy: true,
