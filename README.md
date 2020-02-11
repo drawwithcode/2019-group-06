@@ -61,19 +61,19 @@ We had to set up the main canvas of the tracking page, where the user can walk a
 We first loaded the
 </br>
 **Home page functions?**</br>
-
+asdfghj
 </br>
 **Animation**</br>
 As the first thing of our app, in the homepage we wanted to represent the idea of movement. So we thought about developing an animation that would recall the idea of dynamicity. We made this animation also to represent people walking around, and to give a preview of the web-app itself.
 </br>
 </br>
 ### Visual
-**Font**
+**Font**</br>
 ![font](assets/font.png)
 The font chosen is IBM plex sans. 
 We choose this font due to his spirit and history: IBM Plex was designed to illustrate the unique relationship between mankind and machines. We taught it was perfect for our project, since it connects artists’ souls and style to an app.
 </br>
-**Colors**
+**Colors**</br>
 ![colors1](assets/colors1.png)
 We used to different tonality of grey: the light one as a background, and the darker for details and writes.
 
@@ -117,18 +117,18 @@ G: 61 </br>
 B: 242 </br>
 
 </br>
-**Shapes**
+**Shapes**</br>
 (smth about shapes (?))
 
 </br>
-### Inspiration and references
+### Inspiration and references</br>
 Those are the references we used to build up our web-app:
 YouTube channel *[The Coding Train](https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw/)*</br>
 [Painted Earth by Moniker Studio](https://studiomoniker.com/projects/painted-earth)</br>
 [MoMa app by Moma NY](https://apps.apple.com/us/app/moma/id383990455)
 </br>
 
-### Interactions
+### Interactions</br>
 <ul>
   <li>
     **Shapes**
@@ -136,10 +136,10 @@ YouTube channel *[The Coding Train](https://www.youtube.com/channel/UCvjgXvBlbQi
   </li>
   </ul>
 
-### Developers
+### Developers</br>
 [Agnese Bartolucci](), [Giulia Proserpio](), [Lorenzo Sala](), [Barbara Vanoli]()
 
-### Course details
+### Course details</br>
 **Teachers:** Michele Mauri, Andrea Benedetti
 
 This repository is the starting point of the assignments given in the elective course [Creative Coding at Politecnico di Milano](https://www11.ceda.polimi.it/schedaincarico/schedaincarico/controller/scheda_pubblica/SchedaPublic.do?&evn_default=evento&c_classe=696598&__pj0=0&__pj1=3ed8420c42c849845b5caa3de626e8fc).</br>
