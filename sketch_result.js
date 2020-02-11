@@ -129,7 +129,7 @@ function draw() {
 }
 
 
-//
-// function touchEnded(event) {
-//   DeviceOrientationEvent.requestPermission()
-// }
+
+function touchEnded(event) {
+  DeviceOrientationEvent.requestPermission()
+}
