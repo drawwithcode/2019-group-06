@@ -167,7 +167,7 @@ Those are the references we used to build up our web-app:
 **Homepage**</br>
 The homepage doesn't include any interaction, except for the button that brings the users to the "How to Play" section of the app.</br></br>
 **Map page**</br>
-The users can choose a color among the selected palette; when they choose it, the circle that indicates their position change color. </br> At this point, they can start walking, moving around the city and leaving a colorful track. At the end, they have to press the button "stop" that is linked to the page that contains the whole map of their city. Here, they can see the track that they have left and also the other users' ones.</br> </br>
+The users can choose a color among the selected palette; when they choose it, the circle that indicates their position change color. At this point, they can start walking, moving around the city and leaving a colorful track. At the end, they have to press the button "stop" that is linked to the page that contains the whole map of their city. Here, they can see the track that they have left and also the other users' ones.</br> </br>
 **Results page**</br>
 The results page, as written before, shows all the drawings left by the users. It's in this section that the users can finally see the main goal of the app: drawing on the city map, making it more colorful. </br>
 </br>
