@@ -123,7 +123,7 @@ function draw() {
   var point = myMap.latLngToPixel(myLat, myLon)
 
   fill(colorList[listpick])
-  radius = 0;
+  radius = 15;
   circle(point.x, point.y, radius)
 
 
