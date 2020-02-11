@@ -70,12 +70,12 @@ As the first thing of our app, in the homepage we wanted to represent the idea o
 ### Visual
 **Font**</br>
 ![font](assets/font.png)
-The font chosen is IBM plex sans. 
+The font chosen is *IBM plex sans*. </br>
 We choose this font due to his spirit and history: IBM Plex was designed to illustrate the unique relationship between mankind and machines. We taught it was perfect for our project, since it connects artists’ souls and style to an app.
 </br>
 **Colors**</br>
-![colors1](assets/colors1.png)
-We used to different tonality of grey: the light one as a background, and the darker for details and writes.
+![colors1](assets/colors1.png)</br>
+We used to different tonality of grey: the light one as a background, and the darker for details and writes.</br>
 
 ***Light Gray***</br>
 R: 223 </br>
@@ -88,8 +88,8 @@ G: 89 </br>
 B: 89</br>
 </br>
 
-![colors2](assets/colors2.png)
-We decided to use five different colors: a vibrant green and a vibrant purple and the three primary colors. 
+![colors2](assets/colors2.png)</br>
+We decided to use five different colors: a vibrant green and a vibrant purple and the three primary colors. </br>
 
 ***Yellow***</br>
 R: 255 </br>
@@ -115,27 +115,22 @@ B: 67 </br>
 R: 131 </br>
 G: 61 </br>
 B: 242 </br>
-
-</br>
-**Shapes**</br>
-(smth about shapes (?))
-
 </br>
 ### Inspiration and references</br>
 Those are the references we used to build up our web-app:
-YouTube channel *[The Coding Train](https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw/)*</br>
-[Painted Earth by Moniker Studio](https://studiomoniker.com/projects/painted-earth)</br>
-[MoMa app by Moma NY](https://apps.apple.com/us/app/moma/id383990455)
+- YouTube channel *[The Coding Train](https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw/)*</br>
+- [Painted Earth by Moniker Studio](https://studiomoniker.com/projects/painted-earth)</br>
+ [MoMa app by Moma NY](https://apps.apple.com/us/app/moma/id383990455)
 </br>
 
 ### Interactions</br>
-<ul>
-  <li>
-    **Shapes**
-    sk
-  </li>
-  </ul>
-
+**Homepage**</br>
+asfg</br>
+**Map page**</br>
+asdf</br>
+**Results page**</br>
+asdfgh</br>
+</br>
 ### Developers</br>
 [Agnese Bartolucci](), [Giulia Proserpio](), [Lorenzo Sala](), [Barbara Vanoli]()
 
