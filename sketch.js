@@ -199,6 +199,6 @@ function mouseClicked() {
 }
 
 
-function touchEnded(event) {
-  DeviceOrientationEvent.requestPermission()
-}
+//function touchEnded(event) {
+//  DeviceOrientationEvent.requestPermission()
+//}
