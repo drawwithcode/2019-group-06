@@ -121,14 +121,10 @@ B: 242 </br>
 
 </br>
 ### Inspiration and references
-<ul>
-  <li>Painted Earth by Moniker Studio </li>
-  <li>MoMa app by MoMa NY </li>
-  
-  <li>The YouTube channel [The Coding Train](https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw/) </li>
 
-</ul>
-
+YouTube channel *[The Coding Train](https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw/)*</br>
+[Painted Earth by Moniker Studio](https://studiomoniker.com/projects/painted-earth)</br>
+[MoMa app by Moma NY](https://apps.apple.com/us/app/moma/id383990455)</br>
 
 
 ### Developers
