@@ -36,15 +36,83 @@ It’s also a recent trend for museums all over the world to develop apps for th
 </br>
 </br>
 ### Details
+The user, in this version of the app, can open up the website and leave a track behind himself. The track is registered by the server and sent to a general map, which collect all the peoples tracks around the city, creating a drawing similar to the artist style (in this case, Pollock). To bring examples of other artists, we could have shapes like circles, squares and triangles for Kandinskij, or a grid filled up of squares for Mondriaan.
+
+For this first version of the app, people can choose among a range of five colours, which can be choose on the right side of the map page. The user can reach that page from the homepage. After choosing the color, a dot will appear on the map, in the user location; then the user can walk around and leave a track! When it’s satisfied with the drawing made, another button will send the user to the results page, where the whole city map can be seen with all the drawings of all the users that ever connected to the website.
 </br>
 </br>
 ### Technologies and libraries
+**GPS**
+Due to the GPS location collection it’s possible to register the drawings on the map
+**Mapbox**
+Mapbox is a tool which can be used to create maps for web-apps 
+**p5.js**
+The javascript library p5 allows us to write easily the code, in a creative way
+**Firebase**
+Firebase is a website that works as a bridge between pages of the app and lets the app collect datas and stores them in an online server
+**JavaScript & Html**
 </br>
 </br>
 ### Code challenges
+**Basic canvas structure (map)**
+We had to set up the main canvas of the tracking page, where the user can walk around, and the results page: we used MapBox to set up a map, and it wasn’t easy to set it up properly. We wanted to have an interactive map, but with our own knowledge we couldn’t merge the interactive map with the drawing canvas; moving the map around would have left a track on the canvas, ruining the experience. We looked everywhere for a solution to this problem, but in the end we couldn’t find one. That’s why we choose to lock the zoom and the viewport, and we tried to go that way.
+
+We first loaded the 	
+**Home page functions?**
+
+**Animation**
+As the first thing of our app, in the homepage we wanted to represent the idea of movement. So we thought about developing an animation that would recall the idea of dynamicity. We made this animation also to represent people walking around, and to give a preview of the web-app itself.
 </br>
 </br>
 ### Visual
+**Font**
+![font](assets/font.png)
+The font chosen is IBM plex sans. 
+We choose this font due to his spirit and history: IBM Plex was designed to illustrate the unique relationship between mankind and machines. We taught it was perfect for our project, since it connects artists’ souls and style to an app.
+</br>
+**Colors**
+![colors1](assets/colors1.png)
+We used to different tonality of grey: the light one as a background, and the darker for details and writes.
+
+***Light Gray***
+R: 223 
+G: 225 
+B: 229 
+
+***Dark Gray***
+R: 89 
+G: 89 
+B: 89
+</br>
+
+![colors2](assets/colors2.png)
+We decided to use five different colors: a vibrant green and a vibrant purple and the three primary colors. 
+
+***Yellow***
+R: 255 
+G: 219 
+B: 39 
+
+***Blue***
+R: 49 
+G: 39 
+B: 255 
+
+***Red***
+R: 239 
+G: 27 
+B: 27 
+
+***Green***
+R: 45 
+G: 201 
+B: 67 
+
+***Purple***
+R: 131 
+G: 61 
+B: 242 
+
 </br>
 </br>
 ### Inspiration and references
