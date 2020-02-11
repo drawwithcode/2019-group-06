@@ -65,20 +65,21 @@ We first loaded what we needed in the index:</br>
 </br>
 Then in the sketch we overlayed the map over the canvas:</br>
  
- ``` ruby
-   myMap = mappa.tileMap(options);
+ 
+  ``` ruby
+     myMap = mappa.tileMap(options);
    myMap.overlay(canvas)
-  ```
+ ```
+ </br>
 </br>
 In this way we were able to draw on the canvas over the map.
-</br>
 We needed then to write a dot where the location was represented on the map, representing the user location:</br>
  ``` ruby
-   var point = myMap.latLngToPixel(myLat, myLon)
+      var point = myMap.latLngToPixel(myLat, myLon)
    
    radius = 15;
    circle(point.x, point.y, radius)
-  ```
+ ```
 </br>
 But we also needed to collect the location by the user:</br>
 
@@ -95,7 +96,7 @@ function positionChanged(position) {
   myLon = position.longitude;
   }
  ```
-
+</br>
 
 **Home page functions?**</br>
 WRITE HERE ABOUT HOMEPAGE FUNCTIONS
