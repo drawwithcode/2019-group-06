@@ -166,7 +166,7 @@ Those are the references we used to build up our web-app:
 **Homepage**</br>
 asfg</br>
 **Map page**</br>
-The users can choose a color among the selected palette; when they choose it, the circle that indicates their position change color. </br> At this point, they can start walking, moving around the city and leaving a colorful track. At the end, they have to press the button "stop" that is linked to the page that contains the whole map of their city. Here, they can see the track that they have left and also the other users' ones.</br> 
+The users can choose a color among the selected palette; when they choose it, the circle that indicates their position change color. </br> At this point, they can start walking, moving around the city and leaving a colorful track. At the end, they have to press the button "stop" that is linked to the page that contains the whole map of their city. Here, they can see the track that they have left and also the other users' ones.</br> </br>
 **Results page**</br>
 asdfgh</br>
 </br>
