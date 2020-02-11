@@ -1,7 +1,7 @@
 ![Header](assets/header.png)
 ### MAPSTRACT - Creative Coding 2019-2020 - Group 6
 
-
+<div>
 <ol>
   <li> Scenario </li>
   <li> Aim of the project </li>
@@ -11,9 +11,10 @@
   <li> Code challenges </li>
   <li> Visual </li>
   <li> Inspiraton and references </li>
-  <li> Abput course </li>
-  <li> About us</li>
+  <li> Course and academic year </li>
+  <li> Developers </li>
 </ol>
+</div>
 
 <ul>
   <li>
