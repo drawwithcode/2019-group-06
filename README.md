@@ -68,7 +68,7 @@ Then in the sketch we overlayed the map over the canvas:</br>
  ``` ruby
    myMap = mappa.tileMap(options);
    myMap.overlay(canvas)
- ```
+  ```
 </br>
 In this way we were able to draw on the canvas over the map.
 </br>
@@ -78,7 +78,7 @@ We needed then to write a dot where the location was represented on the map, rep
    
    radius = 15;
    circle(point.x, point.y, radius)
- ```
+  ```
 </br>
 But we also needed to collect the location by the user:</br>
 
