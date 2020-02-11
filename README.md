@@ -79,8 +79,8 @@ We needed then to write a dot where the location was represented on the map, rep
    
    radius = 15;
    circle(point.x, point.y, radius)
- ```
-</br>
+  ```
+  
 But we also needed to collect the location by the user:</br>
 
  ``` ruby
