@@ -71,7 +71,7 @@ function positionChanged(position) {
 
 function setup() {
   canvas = createCanvas(windowWidth, windowHeight)
-  exit = new Rect(windowWidth / 12, height - (75 + windowWidth / 12), 65, 65);
+  exit = new circle(windowWidth / 12, height - (75 + windowWidth / 12), 65);
 
 
   const firebaseConfig = {
@@ -136,35 +136,24 @@ function draw() {
 }
 //il rettangolo a cui applicare la variabile shouldIdraw falsa e a cui
 //collegare la pagina successiva
-function Rect(_x, _y, _width, _height) {
+function Rect(_x, _y, rad) {
   this.x = _x;
   this.y = _y;
-  this.width = _width;
-  this.height = _height;
+  this.size = rad;
   this.color = "orange";
 
   this.display = function() {
     fill(this.color);
-    rect(this.x, this.y, this.width, this.height);
+    rect(this.x, this.y, this.size);
   }
 
   this.clicked = function() {
     console.log("hey")
+    shouldIdraw = false; //METTETE LA VARIABILE TRUE E SPOSTATE IL LINK ALLA PAGINA AL PULSANTE
+    window.open('./index_result.html', '_self')
   }
 
-  this.dragged = function() {
-    this.x = mouseX;
-    this.y = mouseY;
 
-    this.color = 150;
-  }
-
-  this.released = function() {
-    this.x = _x;
-    this.y = _y;
-
-    this.color = 255;
-  }
 }
 
 function submitData() {
@@ -190,8 +179,7 @@ function mouseClicked() {
   } else
   if (windowWidth - (radc * 2) && (mouseX > (windowWidth - (radc * 2)))) {
     listpick = 1;
-    shouldIdraw = false; //METTETE LA VARIABILE TRUE E SPOSTATE IL LINK ALLA PAGINA AL PULSANTE
-    window.open('./index_result.html', '_self')
+    shouldIdraw = true
 
   } else {
 
