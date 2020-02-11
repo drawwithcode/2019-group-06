@@ -12,7 +12,7 @@
   <li> Visual </li>
   <li> Inspiraton and references </li>
   <li> Abput course </li>
-  <li> [About us] (ABOUT US) </li>
+  <li> [About us] (###ABOUT US) </li>
 </ul>
 
 <ul>
