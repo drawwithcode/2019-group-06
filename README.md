@@ -57,17 +57,27 @@ Firebase is a website that works as a bridge between pages of the app and lets t
 **Basic canvas structure (map)**</br>
 We had to set up the main canvas of the tracking page, where the user can walk around, and the results page: we used MapBox to set up a map, and it wasn’t easy to set it up properly. We wanted to have an interactive map, but with our own knowledge we couldn’t merge the interactive map with the drawing canvas; moving the map around would have left a track on the canvas, ruining the experience. We looked everywhere for a solution to this problem, but in the end we couldn’t find one. That’s why we choose to lock the zoom and the viewport, and we tried to go that way.
 
-We first loaded what we needed in the index:
-  ``` ruby
+We first loaded what we needed in the index:</br>
+ ``` ruby
     <script src="p5.geolocation.js"></script>
     <script src="https://unpkg.com/mappa-mundi/dist/mappa.js" type="text/javascript"></script>
  ```
-</br>sdfgh
+</br>
+Then in the sketch we overlayed the map over the canvas:</br>
+``` ruby
+  myMap = mappa.tileMap(options);
+  myMap.overlay(canvas)
+``` 
+</br>
+In this way we were able to draw on the canvas over the map.
+</br>
+We needed then to
 </br>
 **Home page functions?**</br>
-asdfghj
+WRITE HERE ABOUT HOMEPAGE FUNCTIONS
 </br>
 **Animation**</br>
+FIX THIS ABOUT HOMEPAGE ANIMATION
 As the first thing of our app, in the homepage we wanted to represent the idea of movement. So we thought about developing an animation that would recall the idea of dynamicity. We made this animation also to represent people walking around, and to give a preview of the web-app itself.
 </br>
 </br>
