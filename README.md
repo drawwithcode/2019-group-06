@@ -15,7 +15,7 @@
 </ol>
 
   ### Scenario
-  The app is developed for museums which want to organize events for the arrival of a new painting, or for the opening of a new exhibition; in this case, our app could be used by the “Museo del Novecento” in Milan for a temporary event organized for the arrival of a new Pollock piece in the museum. The app can be used everywhere in Milan (for now). 
+  The app is developed for museums which want to organize events for the arrival of a new painting, or for the opening of a new exhibition; in this case, our app could be used by the *Museo del Novecento* in Milan for a temporary event organized for the arrival of a new Pollock piece in the museum. The app can be used everywhere in Milan (for now). 
 
 For the first version of the app, we decided to limit the gameplay range in the city of Milan and the main theme of the app is Pollock. 
 We thought that the app could be declined in various artists’ styles depending on new arrivals of works of art in the museum.
@@ -116,9 +116,17 @@ G: 61 </br>
 B: 242 </br>
 
 </br>
+**Shapes**
+(smth about shapes (?))
+
 </br>
 ### Inspiration and references
+<ul>
+  <li>Painted Earth by Moniker Studio </li>
+  <li>MoMa app by MoMa NY </li>
+  <li>The YouTube channel *[The Coding Train]* (https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw) </li>
 
+</ul>
 
 
 
