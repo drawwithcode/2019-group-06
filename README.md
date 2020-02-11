@@ -175,7 +175,7 @@ The results page, as written before, shows all the drawings left by the users. I
 [Agnese Bartolucci](), [Giulia Proserpio](), [Lorenzo Sala](), [Barbara Vanoli]()
 
 ### Course details</br>
-**Teacher:** Michele Mauri
+**Teacher:** Michele Mauri </br>
 **Teaching Assistant:** Andrea Benedetti
 
 This repository is the starting point of the assignments given in the elective course [Creative Coding at Politecnico di Milano](https://www11.ceda.polimi.it/schedaincarico/schedaincarico/controller/scheda_pubblica/SchedaPublic.do?&evn_default=evento&c_classe=696598&__pj0=0&__pj1=3ed8420c42c849845b5caa3de626e8fc).</br>
