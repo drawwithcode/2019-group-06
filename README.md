@@ -95,6 +95,8 @@ function positionChanged(position) {
   }
  ```
 </br>
+</br>
+</br>
 **Home page functions?**</br>
 WRITE HERE ABOUT HOMEPAGE FUNCTIONS
 </br>
