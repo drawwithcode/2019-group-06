@@ -47,7 +47,7 @@ var bounds = [
 const options = {
   // lat: 45.4689727,
   // lng: 9.1895752,
-  zoom: 17,
+  zoom: 15,
   interactive: false,
   style: "mapbox://styles/mapbox/dark-v8",
   pitch: 10,
