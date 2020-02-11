@@ -31,7 +31,7 @@ The aim of the project is to allow people to keep in touch with art while having
 ### Idea and concept
 Since the project’s brief was to create something collaborative, the first thing first that came in our mind was to develope an app that would link art and people. 
 
-We also taught that GPS’ based apps are so popular nowadays (we can think about Pokémon Go or Strava) and they are easy and fun to use; GPS’ based games promote a way of playing that differs from the use of the classic consoles connected to the TVs: GPS’s games promote outdoor playing.
+We also thought that GPS’ based apps are so popular nowadays (we can think about Pokémon Go or Strava) and they are easy and fun to use; GPS’ based games promote a way of playing that differs from the use of the classic consoles connected to the TVs: GPS’s games promote outdoor playing.
 
 It’s also a recent trend for museums all over the world to develop apps for their visitors to make their visit an interactive experience. 
 </br>
@@ -57,15 +57,15 @@ Firebase is a website that works as a bridge between pages of the app and lets t
 **Basic canvas structure (map)**</br>
 We had to set up the main canvas of the tracking page, where the user can walk around, and the results page: we used MapBox to set up a map, and it wasn’t easy to set it up properly. We wanted to have an interactive map, but with our own knowledge we couldn’t merge the interactive map with the drawing canvas; moving the map around would have left a track on the canvas, ruining the experience. We looked everywhere for a solution to this problem, but in the end we couldn’t find one. That’s why we choose to lock the zoom and the viewport, and we tried to go that way.
 
-We first loaded what we needed in the index:
-</br>
+We first loaded what we needed in the index:</br>
  ``` ruby
     <script src="p5.geolocation.js"></script>
     <script src="https://unpkg.com/mappa-mundi/dist/mappa.js" type="text/javascript"></script>
  ```
 </br>
-Then in the sketch we overlayed the map over the canvas:
-</br>
+Then in the sketch we overlayed the map over the canvas:</br>
+ 
+ 
   ``` ruby
      myMap = mappa.tileMap(options);
    myMap.overlay(canvas)
@@ -73,15 +73,14 @@ Then in the sketch we overlayed the map over the canvas:
  </br>
 </br>
 In this way we were able to draw on the canvas over the map.
-We needed then to write a dot where the location was represented on the map, representing the user location:
-</br>
+We needed then to write a dot where the location was represented on the map, representing the user location:</br>
  ``` ruby
       var point = myMap.latLngToPixel(myLat, myLon)
    
    radius = 15;
    circle(point.x, point.y, radius)
   ```
-  </br>
+  
 But we also needed to collect the location by the user:</br>
 
  ``` ruby
@@ -167,7 +166,7 @@ Those are the references we used to build up our web-app:
 **Homepage**</br>
 asfg</br>
 **Map page**</br>
-asdf</br>
+The users can choose a color among the selected palette; when they choose it, the circle that indicates their position change color. </br> At this point, they can start walking, moving around the city and leaving a colorful track. At the end, they have to press the button "stop" that is linked to the page that contains the whole map of their city. Here, they can see the track that they have left and also the other users' ones.</br> 
 **Results page**</br>
 asdfgh</br>
 </br>
