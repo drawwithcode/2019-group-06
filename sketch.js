@@ -10,10 +10,10 @@ var database;
 var shouldIdraw = false;
 var myLat, myLon;
 // cambiare coordinate per città, sono sotto
-var swuno = 9.059298 // MILANO
-var swdue = 45.385749
-var neuno = 9.304870
-var nedue = 45.541406
+var swuno = 1.019649 // CANTERBURY
+var swdue = 51.249429
+var neuno = 1.151313
+var nedue = 51.309454
 
 const watchOptions = {
   enableHighAccuracy: true,
@@ -105,12 +105,12 @@ function setup() {
   yely = redy
 }
 
-function deviceMoved() {
-  value = value - 1;
-  if (value > -7) {
-    value = -7
-  }
-}
+// function deviceMoved() {
+//   value = value - 1;
+//   if (value > -7) {
+//     value = -7
+//   }
+// }
 
 function draw() {
 
@@ -123,7 +123,7 @@ function draw() {
   var point = myMap.latLngToPixel(myLat, myLon)
 
   fill(colorList[listpick])
-  radius = 0;
+  radius = 15;
   circle(point.x, point.y, radius)
 
 
@@ -182,17 +182,14 @@ function submitData() {
 function mouseClicked() {
   if (mouseY < windowHeight / 3 && (mouseX > (windowWidth - (radc * 2)))) {
     listpick = 0;
-    radius = 15;
     shouldIdraw = true;
   } else
   if (mouseY < windowHeight * 2 / 3 && (mouseX > (windowWidth - (radc * 2)))) {
     listpick = 2;
-    radius = 15;
     shouldIdraw = true;
   } else
   if (windowWidth - (radc * 2) && (mouseX > (windowWidth - (radc * 2)))) {
     listpick = 1;
-    radius = 15;
     shouldIdraw = false; //METTETE LA VARIABILE TRUE E SPOSTATE IL LINK ALLA PAGINA AL PULSANTE
     window.open('./index_result.html', '_self')
 

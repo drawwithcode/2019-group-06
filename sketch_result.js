@@ -10,10 +10,10 @@ var database;
 var shouldIdraw = false;
 var myLat, myLon;
 // cambiare coordinate per città, sono sotto
-var swuno = 9.059298 // MILANO
-var swdue = 45.385749
-var neuno = 9.304870
-var nedue = 45.541406
+var swuno = 1.019649 // CANTERBURY
+var swdue = 51.249429
+var neuno = 1.151313
+var nedue = 51.309454
 
 const watchOptions = {
   enableHighAccuracy: true,
@@ -103,10 +103,7 @@ function setup() {
       var rad = pos[k].radius
       console.log(lat, lon, col, rad)
       var get = myMap.latLngToPixel(lat, lon);
-      var colornumb = colorList[col]
-      console.log(colornumb)
-      stroke(colornumb, 25)
-      strokeWeight(5)
+      noStroke()
       fill(colorList[col])
       circle(get.x,get.y,rad)
 
