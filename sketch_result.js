@@ -18,7 +18,7 @@ const watchOptions = {
   maximumAge: 0
 };
 
-var colorList = ['red', 'blue', 'yellow', 'green', 'black', 'purple']
+var colorList = ['#ef1b1b', '#ffdb27', '#3127ff', '#2dc943', '#000000', '#833df2']
 const mappa = new Mappa('MapboxGL', "pk.eyJ1IjoiYW5kcmVhYmVuZWRldHRpIiwiYSI6ImNqNWh2eGh3ejFqOG8zM3BrZjRucGZkOGEifQ.SmdBpUoSe3s0tm-OTDFY9Q")
 var bounds = [
   [swuno, swdue], // SW coordinates
@@ -47,7 +47,7 @@ const options = {
   // lng: 9.1895752,
   zoom: 5,
   interactive: false,
-  style: "mapbox://styles/mapbox/dark-v8",
+  style: "mapbox://styles/mapbox/light-v8",
   pitch: 10,
   maxBounds: bounds,
 }
@@ -119,9 +119,7 @@ function setup() {
 function draw() {
 
 }
-
-
-
+// 
 // function touchEnded(event) {
 //   DeviceOrientationEvent.requestPermission()
 // }

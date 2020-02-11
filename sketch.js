@@ -1,210 +1,178 @@
-let myMap;
-let canvas;
-let posx, posy;
-var position, radius;
-var value = 0;
-var listpick = 4;
-var redx, redy, blux, bluy, yelx, yely, grex, grey, purx, pury, radc;
-var exit, ref;
-var database;
-var shouldIdraw = false;
-var myLat, myLon;
-// city references can be changed just changing the referral points. some examples are further in the code
-var swuno = 1.019649 // CANTERBURY
-var swdue = 51.249429
-var neuno = 1.151313
-var nedue = 51.309454
-//let's the app to read with high accuracy the location of the user
-const watchOptions = {
-  enableHighAccuracy: true,
-  maximumAge: 0
-};
-//list of colors used to draw around
-var colorList = ['red', 'blue', 'yellow', 'green', 'black', 'purple']
+var cells, offset, margin, cellSize; // variables for the lines
+var movers = []; // variable for the animation
+var graphics; // variable of the graphics
+var url = "https://coolors.co/ffdb27-3127ff-ef1b1b-2dc943-833df2"; // url of the colors
+var palette; // variable of the palette
 
-//loading the map
-const mappa = new Mappa('MapboxGL', "pk.eyJ1IjoiYW5kcmVhYmVuZWRldHRpIiwiYSI6ImNqNWh2eGh3ejFqOG8zM3BrZjRucGZkOGEifQ.SmdBpUoSe3s0tm-OTDFY9Q")
-//bounds of the area used by the app
-var bounds = [
-  [swuno, swdue], // SW coordinates
-  [neuno, nedue] // NE coordinates
-];
+var logo; // variable of the logo
 
-//different city options
-
-// var swuno = 1.019649 // CANTERBURY
-// var swdue = 51.249429
-// var neuno = 1.151313
-// var nedue = 51.309454
-//
-// var swuno = 9.059298 // MILANO
-// var swdue = 45.385749
-// var neuno = 9.304870
-// var nedue = 45.541406
-//
-// var swuno = -2.152029 // BIRMINGHAM
-// var swdue = 52.352969
-// var neuno = -1.597220
-// var nedue = 52.581785
-
-//map options
-const options = {
-  zoom: 17,
-  interactive: false,
-  style: "mapbox://styles/mapbox/dark-v8",
-  pitch: 10,
-  maxBounds: bounds,
-}
-
+var button; // variable of the button
 
 function preload() {
-  milano = loadImage("./mappaMilano.png")
-
-  //updates location everytime there's a new one
-  position = watchPosition(positionChanged);
-}
-
-function positionChanged(position) {
-  myLat = position.latitude;
-  myLon = position.longitude;
-  //variable to decide either to send datas to the server or not
-  if (shouldIdraw == true) {
-    submitData()
-  } else {}
+  logo = loadImage("./assets/logo.png"); // load the image of the logo
 }
 
 function setup() {
-  canvas = createCanvas(windowWidth, windowHeight)
-  exit = new Circ(windowWidth / 12, height - (75 + windowWidth / 12), 65);
+  createCanvas(windowWidth, windowHeight);
+  colorMode(HSB, 360, 100, 100, 100);
+  angleMode(DEGREES);
 
-  //setting up firebase
-  const firebaseConfig = {
-    apiKey: "AIzaSyC-fiV18ijZctY5WrQIllaZmQnNQ7FKf10",
-    authDomain: "mapstract-74411.firebaseapp.com",
-    databaseURL: "https://mapstract-74411.firebaseio.com",
-    projectId: "mapstract-74411",
-    storageBucket: "mapstract-74411.appspot.com",
-    messagingSenderId: "11859346333",
-    appId: "1:11859346333:web:253c37d5f8dfdc7036e574",
-    measurementId: "G-M7G8BVNG1H"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
+  // create a button
+  button = createButton("START");
+  button.position(windowWidth / 3.6, windowHeight / 2 + 400);
+  button.mousePressed(tutorialMap); // go to the tutorial
 
-  database = firebase.database();
+  palette = createPalette(url);
 
-  options.lat = myLat;
-  options.lng = myLon;
-  myMap = mappa.tileMap(options);
-  myMap.overlay(canvas)
+  // create the graphics with their properties
+  graphics = createGraphics(width, height);
+  graphics.colorMode(HSB, 360, 100, 100, 100);
+  graphics.noStroke();
+  graphics.fill(0, 0, 100, 1);
+  for (var i = 0; i < width * height * 10 / 100; i++) {
+    var x = random(width);
+    var y = random(height);
+    var w = random(2);
+    var h = random(2);
+    graphics.ellipse(x, y, w, h);
+  }
 
-  //color choice buttons position
-  redx = windowWidth * 1 / 6
-  redy = windowHeight * 9.9 / 10
-  blux = windowWidth * 2 / 6
-  bluy = redy
-  yelx = windowWidth * 3 / 6
-  yely = redy
-  grex = windowWidth * 4 / 6
-  grey = redy
-  purx = windowWidth * 5 / 6
-  pury = redy
+  cells = 8; // number of cells for the animation
+
+  // arrangement of the cells on the canvas
+  offset = windowHeight;
+  margin = offset / 10;
+  cellSize = 100;
+
+  background(0, 0, 89);
+
+  // random animation of the lines on the canvas
+  for (var a = 0; a < cells; a++) {
+    for (var b = 0; b < cells; b++) {
+      var x = offset + a * (cellSize + margin);
+      var y = offset + b * (cellSize + margin);
+      var m = new Move(x + random(cellSize), y + random(cellSize));
+      movers.push(m);
+    }
+  }
+
+  image(graphics, 0, 0);
 }
-
-// function deviceMoved() {
-//   value = value - 1;
-//   if (value > -7) {
-//     value = -7
-//   }
-// }
 
 function draw() {
-  //buttons width
-  radc = windowWidth / 20
-  rectMode(CENTER)
-  noStroke()
 
-  exit.display();
-  //converts coordinates to pixels
-  var point = myMap.latLngToPixel(myLat, myLon)
-  //drawing location
-  if (shouldIdraw == true) {
-    fill(colorList[listpick])
-    radius = 15;
-    circle(point.x, point.y, radius)
-  } else {}
+  background(0, 0, 89, 5);
 
-  //buttons choice color
-  fill('red')
-  rect(windowWidth - (radc), windowHeight / 10, radc * 2, windowHeight / 5)
-  fill('yellow')
-  rect(windowWidth - (radc), windowHeight * 3 / 10, radc * 2, windowHeight / 5)
-  fill('blue')
-  rect(windowWidth - (radc), windowHeight * 5 / 10, radc * 2, windowHeight / 5)
-  fill('green')
-  rect(windowWidth - (radc), windowHeight * 7 / 10, radc * 2, windowHeight / 5)
-  fill('purple')
-  rect(windowWidth - (radc), windowHeight * 9 / 10, radc * 2, windowHeight / 5)
-}
-
-//il rettangolo a cui applicare la variabile shouldIdraw falsa e a cui
-//collegare la pagina successiva
-function Circ(_x, _y, rad) {
-  this.x = _x;
-  this.y = _y;
-  this.size = rad;
-  this.color = "orange";
-
-  this.display = function() {
-    fill(this.color);
-    rect(this.x, this.y, this.size);
+  // display and loop of the animation of the lines
+  for (var m of movers) {
+    m.update();
+    m.display();
   }
 
-  this.clicked = function() {
-    console.log("hey")
-    shouldIdraw = false;
-    window.open('./index_result.html', '_self')
+  // position and dimension of the logo on the canvas
+  imageMode(CENTER);
+  image(logo, windowWidth / 2, windowHeight / 2, logo.width / 1.3, logo.height / 1.3);
+
+}
+
+// class for the animation of the lines on the canvas
+class Move {
+  constructor(x, y) {
+    this.prevPosition = []; // previous position of the lines
+    this.maxLength = 5; // max length of the lines
+    this.strokec = random(palette); // color of the stroke of the lines
+    this.fillc = random(palette); // color of the fill of the lines
+    this.position = createVector(x, y); // create a vector with x and y components
+    this.prevPos = this.position.copy(); // copy the previous position
+    this.dir = int(random(8)) * 360 / 8; // direction of the lines
+    this.r = 3; // velocity
+  }
+
+  // update function for the loop animation of the lines
+  update() {
+    if (random(100) < 3) {
+      var newDir = this.dir;
+      while (newDir == this.dir) {
+        newDir = int(random(8)) * 360 / 8;
+      }
+      this.dir = newDir;
+    }
+    this.position.add(createVector(cos(this.dir), sin(this.dir)).mult(this.r));
+
+    if (this.position.x < 0) {
+      this.position.x += width;
+      this.prevPosition = [];
+    } else if (this.position.x > width) {
+      this.position.x -= width;
+      this.prevPosition = [];
+    }
+
+    if (this.position.y < 0) {
+      this.position.y += height;
+      this.prevPosition = [];
+    } else if (this.position.y > height) {
+      this.position.y -= height;
+      this.prevPosition = [];
+    }
+
+    this.prevPosition.push(this.position.copy());
+
+    if (this.prevPosition.length > this.maxLength) {
+      this.prevPosition.shift();
+    }
+  }
+
+  // display function of the lines
+  display() {
+    stroke(this.strokec);
+    fill(this.fillc);
+    beginShape();
+    var pp;
+    for (var p of this.prevPosition) {
+      if (typeof(pp) != 'undefined') {
+        var d = p5.Vector.dist(p, pp);
+        if (d > this.r * 2) {
+          endShape();
+          beginShape();
+        }
+      }
+      vertex(p.x, p.y);
+      pp = p.copy();
+    }
+    endShape();
+
+    this.prevPos = this.position.copy();
   }
 }
 
-//sends points datas to the server
-function submitData() {
-  var data = {
-    lat: myLat,
-    lon: myLon,
-    color: listpick,
-    radius: radius
+// function for the palette of colors used for the animation
+function createPalette(_url) {
+  var slash_index = _url.lastIndexOf('/');
+  var palette_str = _url.slice(slash_index + 1);
+  var arr = palette_str.split('-');
+
+  for (var i = 0; i < arr.length; i++) {
+    var red = unhex(arr[i].substr(0, 2));
+    var green = unhex(arr[i].substr(2, 2));
+    var blue = unhex(arr[i].substr(4, 2));
+    colorMode(RGB, 255, 255, 255);
+    var c = color(red, green, blue);
+    var h = hue(c);
+    var s = saturation(c);
+    var b = brightness(c);
+    var t = 100 * 3 / 4;
+    colorMode(HSB, 360, 100, 100, 100);
+    c = color(h, s, b, t);
+    arr[i] = c;
   }
-  ref = database.ref('pos');
-  ref.push(data);
+  return arr;
 }
-
-//function that sets the color of the drawing
-function mouseClicked() {
-  if (mouseY < windowHeight / 5 && (mouseX > (windowWidth - (radc * 2)))) {
-    listpick = 0;
-    shouldIdraw = true;
-  } else
-  if (mouseY < windowHeight * 2 / 5 && (mouseX > (windowWidth - (radc * 2)))) {
-    listpick = 2;
-    shouldIdraw = true;
-  } else
-  if (mouseY > windowHeight * 4 / 5 && (mouseX > (windowWidth - (radc * 2)))) {
-    listpick = 5;
-    shouldIdraw = true
-  } else
-  if (mouseY > windowHeight * 3 / 5 && (mouseX > (windowWidth - (radc * 2)))) {
-    listpick = 3;
-    shouldIdraw = true
-  } else
-  if (mouseY > windowHeight * 2 / 5 && (mouseX > (windowWidth - (radc * 2)))) {
-    listpick = 1;
-    shouldIdraw = true
-  } else {}
-}
-
-
+// 
 // function touchEnded(event) {
-//  DeviceOrientationEvent.requestPermission()
+//   DeviceOrientationEvent.requestPermission()
 // }
+
+// function to move to the next page (tutorial)
+function tutorialMap(){
+  window.open("index2.html", "_self");
+}
