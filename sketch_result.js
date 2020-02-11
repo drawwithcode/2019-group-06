@@ -4,7 +4,7 @@ let posx, posy;
 var position, radius;
 var value = 0;
 var listpick = 4;
-var redx, redy, blux, bluy, yelx, yely, radc;
+var lat, lon, col, rad;
 var exit, ref;
 var database;
 var shouldIdraw = false;
@@ -47,7 +47,7 @@ var bounds = [
 const options = {
   // lat: 45.4689727,
   // lng: 9.1895752,
-  zoom: 17,
+  zoom: 5,
   interactive: false,
   style: "mapbox://styles/mapbox/dark-v8",
   pitch: 10,
@@ -65,14 +65,12 @@ function positionChanged(position) {
   myLat = position.latitude;
   myLon = position.longitude;
   if (shouldIdraw == true) {
-    submitData()
+
   } else {}
 }
 
 function setup() {
   canvas = createCanvas(windowWidth, windowHeight)
-  exit = new Rect(windowWidth / 12, height - (75 + windowWidth / 12), 65, 65);
-
 
   const firebaseConfig = {
     apiKey: "AIzaSyC-fiV18ijZctY5WrQIllaZmQnNQ7FKf10",
@@ -90,116 +88,46 @@ function setup() {
 
   database = firebase.database();
 
+  var ref = database.ref('pos');
+  ref.on('value', gotData, errData)
+
+  function gotData(data) {
+
+    var pos = data.val();
+    var keys = Object.keys(pos)
+    for (var i = 0; i<keys.length; i++) {
+      var k = keys[i];
+      var lat = pos[k].lat
+      var lon = pos[k].lon
+      var col = pos[k].color
+      var rad = pos[k].radius
+      console.log(lat, lon, col, rad)
+      var get = myMap.latLngToPixel(lat, lon);
+      var colornumb = colorList[col]
+      console.log(colornumb)
+      stroke(colornumb, 25)
+      strokeWeight(5)
+      fill(colorList[col])
+      circle(get.x,get.y,rad)
+
+    }
+  }
+
+  function errData(err) {
+    console.log('Error!');
+    console.log(err);
+  }
 
   options.lat = myLat;
   options.lng = myLon;
   myMap = mappa.tileMap(options);
   myMap.overlay(canvas)
-
-
-  redx = windowWidth * 1 / 4
-  redy = windowHeight * 9.9 / 10
-  blux = windowWidth * 2 / 4
-  bluy = redy
-  yelx = windowWidth * 3 / 4
-  yely = redy
-}
-
-function deviceMoved() {
-  value = value - 1;
-  if (value > -7) {
-    value = -7
-  }
 }
 
 function draw() {
 
-  radc = windowWidth / 20
-  rectMode(CENTER)
-  noStroke()
-
-  exit.display();
-
-  var point = myMap.latLngToPixel(myLat, myLon)
-
-  fill(colorList[listpick])
-  radius = 0;
-  circle(point.x, point.y, radius)
-
-
-  fill('red')
-  rect(windowWidth - (radc), windowHeight / 6, radc * 2, windowHeight / 3)
-  fill('yellow')
-  rect(windowWidth - (radc), windowHeight * 3 / 6, radc * 2, windowHeight / 3)
-  fill('blue')
-  rect(windowWidth - (radc), windowHeight * 5 / 6, radc * 2, windowHeight / 3)
-}
-//il rettangolo a cui applicare la variabile shouldIdraw falsa e a cui
-//collegare la pagina successiva
-function Rect(_x, _y, _width, _height) {
-  this.x = _x;
-  this.y = _y;
-  this.width = _width;
-  this.height = _height;
-  this.color = "orange";
-
-  this.display = function() {
-    fill(this.color);
-    rect(this.x, this.y, this.width, this.height);
-  }
-
-  this.clicked = function() {
-    console.log("hey")
-  }
-
-  this.dragged = function() {
-    this.x = mouseX;
-    this.y = mouseY;
-
-    this.color = 150;
-  }
-
-  this.released = function() {
-    this.x = _x;
-    this.y = _y;
-
-    this.color = 255;
-  }
 }
 
-function submitData() {
-  var data = {
-    lat: myLat,
-    lon: myLon,
-    color: listpick,
-    radius: radius
-  }
-
-  ref = database.ref('pos');
-  ref.push(data);
-}
-
-function mouseClicked() {
-  if (mouseY < windowHeight / 3 && (mouseX > (windowWidth - (radc * 2)))) {
-    listpick = 0;
-    radius = 15;
-    shouldIdraw = true;
-  } else
-  if (mouseY < windowHeight * 2 / 3 && (mouseX > (windowWidth - (radc * 2)))) {
-    listpick = 2;
-    radius = 15;
-    shouldIdraw = true;
-  } else
-  if (windowWidth - (radc * 2) && (mouseX > (windowWidth - (radc * 2)))) {
-    listpick = 1;
-    radius = 15;
-    shouldIdraw = false; //METTETE LA VARIABILE TRUE E SPOSTATE IL LINK ALLA PAGINA AL PULSANTE
-    window.open('./index_result.html', '_self')
-
-  } else {
-
-  }
-}
 
 //
 // function touchEnded(event) {
