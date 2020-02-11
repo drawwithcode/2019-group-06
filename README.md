@@ -54,13 +54,15 @@ Firebase is a website that works as a bridge between pages of the app and lets t
 </br>
 </br>
 ### Code challenges
-**Basic canvas structure (map)**
+**Basic canvas structure (map)**</br>
 We had to set up the main canvas of the tracking page, where the user can walk around, and the results page: we used MapBox to set up a map, and it wasn’t easy to set it up properly. We wanted to have an interactive map, but with our own knowledge we couldn’t merge the interactive map with the drawing canvas; moving the map around would have left a track on the canvas, ruining the experience. We looked everywhere for a solution to this problem, but in the end we couldn’t find one. That’s why we choose to lock the zoom and the viewport, and we tried to go that way.
 
-We first loaded the 	
-**Home page functions?**
+We first loaded the
+</br>
+**Home page functions?**</br>
 
-**Animation**
+</br>
+**Animation**</br>
 As the first thing of our app, in the homepage we wanted to represent the idea of movement. So we thought about developing an animation that would recall the idea of dynamicity. We made this animation also to represent people walking around, and to give a preview of the web-app itself.
 </br>
 </br>
@@ -74,44 +76,44 @@ We choose this font due to his spirit and history: IBM Plex was designed to illu
 ![colors1](assets/colors1.png)
 We used to different tonality of grey: the light one as a background, and the darker for details and writes.
 
-***Light Gray***
-R: 223 
-G: 225 
-B: 229 
+***Light Gray***</br>
+R: 223 </br>
+G: 225 </br>
+B: 229 </br>
 
-***Dark Gray***
-R: 89 
-G: 89 
-B: 89
+***Dark Gray***</br>
+R: 89 </br>
+G: 89 </br>
+B: 89</br>
 </br>
 
 ![colors2](assets/colors2.png)
 We decided to use five different colors: a vibrant green and a vibrant purple and the three primary colors. 
 
-***Yellow***
-R: 255 
-G: 219 
-B: 39 
+***Yellow***</br>
+R: 255 </br>
+G: 219 </br>
+B: 39 </br>
 
-***Blue***
-R: 49 
-G: 39 
-B: 255 
+***Blue***</br>
+R: 49 </br>
+G: 39 </br>
+B: 255 </br>
 
-***Red***
-R: 239 
-G: 27 
-B: 27 
+***Red***</br>
+R: 239 </br>
+G: 27 </br>
+B: 27 </br>
 
-***Green***
-R: 45 
-G: 201 
-B: 67 
+***Green***</br>
+R: 45 </br>
+G: 201 </br>
+B: 67 </br>
 
-***Purple***
-R: 131 
-G: 61 
-B: 242 
+***Purple***</br>
+R: 131 </br>
+G: 61 </br>
+B: 242 </br>
 
 </br>
 </br>
