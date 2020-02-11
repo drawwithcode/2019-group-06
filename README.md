@@ -2,7 +2,7 @@
 ### MAPSTRACT - Creative Coding 2019-2020 - Group 6
 
 
-<ul>
+<ol>
   <li> Scenario </li>
   <li> Aim of the project </li>
   <li> Idea an concept </li>
@@ -12,8 +12,8 @@
   <li> Visual </li>
   <li> Inspiraton and references </li>
   <li> Abput course </li>
-  <li> [About us] (###ABOUT US) </li>
-</ul>
+  <li> About us</li>
+</ol>
 
 <ul>
   <li>
