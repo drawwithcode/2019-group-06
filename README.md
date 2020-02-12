@@ -80,18 +80,18 @@ We needed then to write a dot where the location was represented on the map, rep
    
     radius = 15;
     circle(point.x, point.y, radius)
---------------------
-  function preload() {
-    milano = loadImage("./mappaMilano.png")
+    
+    function preload() {
+      milano = loadImage("./mappaMilano.png")
 
-   //updates location everytime there's a new one
-   position = watchPosition(positionChanged);
-  }
+     //updates location everytime there's a new one
+     position = watchPosition(positionChanged);
+   }
 
-  function positionChanged(position) {
-    myLat = position.latitude;
-    myLon = position.longitude;
-    }
+    function positionChanged(position) {
+     myLat = position.latitude;
+      myLon = position.longitude;
+      }
 
 </br>
 </br>
