@@ -95,15 +95,15 @@ We needed then to write a dot where the location was represented on the map, rep
 
 -----------------------------------------------------------------------------------------------------------------------
 </br>
+<div></div>
 **Homepage functions**</br>
-Wriuieite.
+We used different hues of grey, the light one as a background, and the darker one for details and texts.</br>
 </br>
 **Animation**</br>
-FIX THIS ABOUT HOMEPAGE ANIMATION.
 As the first thing of our app, in the homepage we wanted to represent the idea of movement. So we thought about developing an animation that would recall the idea of dynamicity. We made this animation also to represent people walking around, and to give a preview of the web-app itself.
 </br>
 </br>
-### Visual
+### Visual </br>
 **Font**</br>
 ![font](assets/font.png)
 The font used in the app is *IBM plex sans*. </br>
