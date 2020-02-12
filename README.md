@@ -328,7 +328,7 @@ B: 242 </br>
 Those are the references we used to build up our web-app:
 - YouTube channel *[The Coding Train](https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw/)*</br>
 - [Painted Earth by Moniker Studio](https://studiomoniker.com/projects/painted-earth)</br>
-- [MoMa app by Moma NY](https://apps.apple.com/us/app/moma/id383990455)</br>
+- [MoMa app by Moma NY](https://apps.apple.com/us/app/moma/id383990455)</br></br>
   ![moma](assets/moniker.gif)</br>
   ![moma](assets/moma.png)
 </br>
