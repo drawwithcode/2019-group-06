@@ -93,7 +93,7 @@ We needed then to write a dot where the location was represented on the map, rep
       myLon = position.longitude;
       }
 
-</br>
+-----------------------------------------------------------------------------------------------------------------------
 </br>
 **Home page functions?**</br>
 WRITE HERE ABOUT HOMEPAGE FUNCTIONS
