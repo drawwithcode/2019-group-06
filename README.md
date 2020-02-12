@@ -72,8 +72,9 @@ Then in the sketch we overlayed the map over the canvas:</br>
  ```
  </br>
 </br>
-In this way we were able to draw on the canvas over the map.
-We needed then to write a dot where the location was represented on the map, representing the user location. But we also needed to collect the location by the user:</br>>
+In this way we were able to draw on the canvas over the map. </br>
+We needed then to write a dot where the location was represented on the map, representing the user location. But we also needed to collect the location by the user:
+</br>
  ``` ruby
       var point = myMap.latLngToPixel(myLat, myLon)
    
@@ -93,7 +94,7 @@ function positionChanged(position) {
   }
  ```
 </br>
-
+</br>
 **Home page functions?**</br>
 WRITE HERE ABOUT HOMEPAGE FUNCTIONS
 </br>
