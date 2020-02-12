@@ -54,7 +54,7 @@ Firebase is a website that works as a bridge between pages of the app and lets t
 **JavaScript & Html**</br>
 </br>
 ### Code challenges
-**Basic canvas structure (map)**</br>
+</br>
 We had to set up the main canvas of the tracking page, where the user can walk around, and the results page: we used MapBox to set up a map, and it wasn’t easy to set it up properly. We wanted to have an interactive map, but, with our own knowledge, we couldn’t merge the interactive map with the drawing canvas; moving the map around would have left a track on the canvas, ruining the experience. We looked everywhere for a solution to this problem, but, in the end, we couldn’t find one. That’s why we choose to lock the zoom and the viewport, and we tried to go that way.
 
 We first loaded what we needed in the index:</br>
@@ -93,8 +93,7 @@ We needed then to write a dot where the location was represented on the map, rep
       }
 
 </br>
-**Setting up the server for the results**
- A huge challenge in the making of the app was for sure the server. It took a long time to find a proper way to send each walk data to  a server, in order to have them shown all together in another page. To have the result page we used *Firebase*, a website that can host a database for your projects.
+A huge challenge in the making of the app was for sure the server. It took a long time to find a proper way to send each walk data to  a server, in order to have them shown all together in another page. To have the result page we used *Firebase*, a website that can host a database for your projects.
 </br>
 First we had to load the libraries:</br>
 
@@ -128,40 +127,41 @@ After loading libraries it’s time to initialize the database and set it up to 
  ```         
 </br>
 You can send data to the database using a special function:
-</br>
+
 ``` ruby
-        function submitData() {
-          var data = {
-            lat: myLat,
-            lon: myLon,
-            color: listpick,
-            radius: radius
-          }
-          ref = database.ref('pos');
-          ref.push(data);
-        }
- ```   
+                    function submitData() {
+                      var data = {
+                        lat: myLat,
+                        lon: myLon,
+                        color: listpick,
+                        radius: radius
+                      }
+                      ref = database.ref('pos');
+                      ref.push(data);
+                    }
+ ```    
 </br>
 You can now check on firebase website if the data are being collected in the right way; now you have to open the sketch where you want to receive the data, and after initializing firebase as we did before, you can collect data with another function:
+
 ``` ruby
-      function gotData(data) {
-        var pos = data.val();
-        var keys = Object.keys(pos)
-        for (var i = 0; i < keys.length; i++) {
-          var k = keys[i];
-          var lat = pos[k].lat
-          var lon = pos[k].lon
-          var col = pos[k].color
-          var rad = pos[k].radius
-          console.log(lat, lon, col, rad)
-          var get = myMap.latLngToPixel(lat, lon);
-          noStroke()
-          fill(colorList[col])
-          circle(get.x, get.y, rad)
-        }
-      }
- ```
-</br>
+            function gotData(data) {
+              var pos = data.val();
+              var keys = Object.keys(pos)
+              for (var i = 0; i < keys.length; i++) {
+                var k = keys[i];
+                var lat = pos[k].lat
+                var lon = pos[k].lon
+                var col = pos[k].color
+                var rad = pos[k].radius
+                console.log(lat, lon, col, rad)
+                var get = myMap.latLngToPixel(lat, lon);
+                noStroke()
+                fill(colorList[col])
+                circle(get.x, get.y, rad)
+              }
+            }
+ ```   
+ </br>
 In this way we collect all the data of the dots “drawn” by people walking around, and we store them in one database. Then we can call them all back everytime we open the results page, drawing all of them over the map in the same exact position. To place them in the proper position we have to use the *latLngToPixel* function, which is readable inside the *gotData()* function itself.
 </br>
 
