@@ -280,7 +280,7 @@ And the random animation of the lines on the canvas:</br>
 ![font](assets/font.png)
 The font used in the app is *IBM plex sans*. </br>
 We chose this font due to his spirit and history: IBM Plex was designed to illustrate the unique relationship between mankind and machines. We taught it was perfect for our project, since it connects artists’ souls and style to an app.
-</br>
+</br></br>
 **Colors**</br>
 ![colors1](assets/colors1.png)</br>
 We used different hues of grey, the light one as a background, and the darker one for details and texts.</br>
