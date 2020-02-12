@@ -164,9 +164,11 @@ You can now check on firebase website if the data are being collected in the rig
  </br>
 In this way we collect all the data of the dots “drawn” by people walking around, and we store them in one database. Then we can call them all back everytime we open the results page, drawing all of them over the map in the same exact position. To place them in the proper position we have to use the *latLngToPixel* function, which is readable inside the *gotData()* function itself.</br>
 </br>
+</br>
+
 **Homepage functions**</br>
 We used different hues of grey, the light one as a background, and the darker one for details and texts.
-
+</br>
 
 
 **Animation**</br>
