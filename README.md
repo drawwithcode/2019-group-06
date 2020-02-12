@@ -95,8 +95,7 @@ We needed then to write a dot where the location was represented on the map, rep
 
 -----------------------------------------------------------------------------------------------------------------------
 </br>
-**Home page functions?**
-</br>
+**Homepage functions**</br>
 Wriuieite.
 </br>
 **Animation**</br>
