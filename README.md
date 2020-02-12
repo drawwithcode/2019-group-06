@@ -53,8 +53,7 @@ The javascript library p5 allows to write the code in a simple, yet creative way
 Firebase is a website that works as a bridge between pages of the app and lets the app collect data, storing them in an online server.</br>
 **JavaScript & Html**</br>
 </br>
-### Code challenges
-</br>
+### Code challenges</br>
 We had to set up the main canvas of the tracking page, where the user can walk around, and the results page: we used MapBox to set up a map, and it wasn’t easy to set it up properly. We wanted to have an interactive map, but, with our own knowledge, we couldn’t merge the interactive map with the drawing canvas; moving the map around would have left a track on the canvas, ruining the experience. We looked everywhere for a solution to this problem, but, in the end, we couldn’t find one. That’s why we choose to lock the zoom and the viewport, and we tried to go that way.
 
 We first loaded what we needed in the index:</br>
