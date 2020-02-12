@@ -53,8 +53,7 @@ The javascript library p5 allows to write the code in a simple, yet creative way
 Firebase is a website that works as a bridge between pages of the app and lets the app collect data, storing them in an online server.</br>
 **JavaScript & Html**</br>
 </br>
-### Code challenges
-**Basic canvas structure (map)**</br>
+### Code challenges</br>
 We had to set up the main canvas of the tracking page, where the user can walk around, and the results page: we used MapBox to set up a map, and it wasn’t easy to set it up properly. We wanted to have an interactive map, but, with our own knowledge, we couldn’t merge the interactive map with the drawing canvas; moving the map around would have left a track on the canvas, ruining the experience. We looked everywhere for a solution to this problem, but, in the end, we couldn’t find one. That’s why we choose to lock the zoom and the viewport, and we tried to go that way.
 
 We first loaded what we needed in the index:</br>
@@ -72,41 +71,205 @@ Then in the sketch we overlayed the map over the canvas:</br>
  ```
  </br>
 </br>
-In this way we were able to draw on the canvas over the map.
-We needed then to write a dot where the location was represented on the map, representing the user location:</br>
- ``` ruby
-      var point = myMap.latLngToPixel(myLat, myLon)
+In this way we were able to draw on the canvas over the map. </br>
+We needed then to write a dot where the location was represented on the map, representing the user location. But we also needed to collect the location by the user:</br>
+
+        var point = myMap.latLngToPixel(myLat, myLon)
    
-   radius = 15;
-   circle(point.x, point.y, radius)
-  ```
-  
-But we also needed to collect the location by the user:</br>
+    radius = 15;
+    circle(point.x, point.y, radius)
+    
+    function preload() {
+      milano = loadImage("./mappaMilano.png")
 
- ``` ruby
-function preload() {
-  milano = loadImage("./mappaMilano.png")
+     //updates location everytime there's a new one
+     position = watchPosition(positionChanged);
+     }
 
-  //updates location everytime there's a new one
-  position = watchPosition(positionChanged);
-}
+    function positionChanged(position) {
+     myLat = position.latitude;
+      myLon = position.longitude;
+      }
 
-function positionChanged(position) {
-  myLat = position.latitude;
-  myLon = position.longitude;
+</br>
+A huge challenge in the making of the app was for sure the server. It took a long time to find a proper way to send each walk data to  a server, in order to have them shown all together in another page. To have the result page we used *Firebase*, a website that can host a database for your projects.
+</br>
+First we had to load the libraries:</br>
+
+``` ruby
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+       https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-database.js"></script>
+ ```    
+</br>
+After loading libraries it’s time to initialize the database and set it up to make it work:
+
+``` ruby
+    //setting up firebase
+      const firebaseConfig = {
+        apiKey: "AIzaSyC-fiV18ijZctY5WrQIllaZmQnNQ7FKf10",
+        authDomain: "mapstract-74411.firebaseapp.com",
+        databaseURL: "https://mapstract-74411.firebaseio.com",
+        projectId: "mapstract-74411",
+        storageBucket: "mapstract-74411.appspot.com",
+        messagingSenderId: "11859346333",
+        appId: "1:11859346333:web:253c37d5f8dfdc7036e574",
+        measurementId: "G-M7G8BVNG1H"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+ ```         
+</br>
+You can send data to the database using a special function:
+
+``` ruby
+                    function submitData() {
+                      var data = {
+                        lat: myLat,
+                        lon: myLon,
+                        color: listpick,
+                        radius: radius
+                      }
+                      ref = database.ref('pos');
+                      ref.push(data);
+                    }
+ ```    
+</br>
+You can now check on firebase website if the data are being collected in the right way; now you have to open the sketch where you want to receive the data, and after initializing firebase as we did before, you can collect data with another function:
+
+``` ruby
+            function gotData(data) {
+              var pos = data.val();
+              var keys = Object.keys(pos)
+              for (var i = 0; i < keys.length; i++) {
+                var k = keys[i];
+                var lat = pos[k].lat
+                var lon = pos[k].lon
+                var col = pos[k].color
+                var rad = pos[k].radius
+                console.log(lat, lon, col, rad)
+                var get = myMap.latLngToPixel(lat, lon);
+                noStroke()
+                fill(colorList[col])
+                circle(get.x, get.y, rad)
+              }
+            }
+ ```   
+ </br>
+In this way we collect all the data of the dots “drawn” by people walking around, and we store them in one database. Then we can call them all back everytime we open the results page, drawing all of them over the map in the same exact position. To place them in the proper position we have to use the *latLngToPixel* function, which is readable inside the *gotData()* function itself.
+</br>
+
+
+**Homepage animation**</br>
+As the first thing of our app, on the homepage, we wanted to represent the idea of movement. So we thought about developing an animation that would recall the idea of dynamicity. We made this animation also to represent people walking around and to give a preview of the web-app itself. </br></br>
+
+We create a class for the animation of the lines on the canvas:</br>
+``` ruby
+            class Move {
+    constructor(x, y) {
+    this.prevPosition = []; // previous position of the lines
+    this.maxLength = 5; // max length of the lines
+    this.strokec = random(palette); // color of the stroke of the lines
+    this.fillc = random(palette); // color of the fill of the lines
+    this.position = createVector(x, y); // create a vector with x and y components
+    this.prevPos = this.position.copy(); // copy the previous position
+    this.dir = int(random(8)) * 360 / 8; // direction of the lines
+    this.r = 3; // velocity
   }
  ```
-</br>
+ </br></br>
+An update function for the loop animation and the display function of the lines:</br>
+``` ruby
+  update() {
+    if (random(100) < 3) {
+      var newDir = this.dir;
+      while (newDir == this.dir) {
+        newDir = int(random(8)) * 360 / 8;
+      }
+      this.dir = newDir;
+    }
+    this.position.add(createVector(cos(this.dir), sin(this.dir)).mult(this.r));
 
-**Home page functions?**</br>
-WRITE HERE ABOUT HOMEPAGE FUNCTIONS
-</br>
-**Animation**</br>
-FIX THIS ABOUT HOMEPAGE ANIMATION
-As the first thing of our app, in the homepage we wanted to represent the idea of movement. So we thought about developing an animation that would recall the idea of dynamicity. We made this animation also to represent people walking around, and to give a preview of the web-app itself.
-</br>
-</br>
-### Visual
+    if (this.position.x < 0) {
+      this.position.x += width;
+      this.prevPosition = [];
+    } else if (this.position.x > width) {
+      this.position.x -= width;
+      this.prevPosition = [];
+    }
+
+    if (this.position.y < 0) {
+      this.position.y += height;
+      this.prevPosition = [];
+    } else if (this.position.y > height) {
+      this.position.y -= height;
+      this.prevPosition = [];
+    }
+
+    this.prevPosition.push(this.position.copy());
+
+    if (this.prevPosition.length > this.maxLength) {
+      this.prevPosition.shift();
+    }
+  }
+
+  display() {
+    stroke(this.strokec);
+    fill(this.fillc);
+    beginShape();
+    var pp;
+    for (var p of this.prevPosition) {
+      if (typeof(pp) != 'undefined') {
+        var d = p5.Vector.dist(p, pp);
+        if (d > this.r * 2) {
+          endShape();
+          beginShape();
+        }
+      }
+      vertex(p.x, p.y);
+      pp = p.copy();
+    }
+    endShape();
+
+    this.prevPos = this.position.copy();
+  }
+}
+  ```
+</br></br>
+Of course, the graphics itself:</br>
+``` ruby
+  graphics = createGraphics(width, height);
+  graphics.colorMode(HSB, 360, 100, 100, 100);
+  graphics.noStroke();
+  graphics.fill(0, 0, 100, 1);
+  for (var i = 0; i < width * height * 10 / 100; i++) {
+    var x = random(width);
+    var y = random(height);
+    var w = random(2);
+    var h = random(2);
+    graphics.ellipse(x, y, w, h);
+  } 
+  ```
+</br></br>
+And the random animation of the lines on the canvas:</br>
+``` ruby
+  for (var a = 0; a < cells; a++) {
+    for (var b = 0; b < cells; b++) {
+      var x = offset + a * (cellSize + margin);
+      var y = offset + b * (cellSize + margin);
+      var m = new Move(x + random(cellSize), y + random(cellSize));
+      movers.push(m);
+    }
+  }
+```
+</br></br>
+
+### Visual </br>
 **Font**</br>
 ![font](assets/font.png)
 The font used in the app is *IBM plex sans*. </br>
