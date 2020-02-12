@@ -140,7 +140,9 @@ You can send data to the database using a special function:
                     }
  ```    
 </br>
-You can now check on firebase website if the data are being collected in the right way; now you have to open the sketch where you want to receive the data, and after initializing firebase as we did before, you can collect data with another function:
+You can now check on firebase website if the data are being collected in the right way.</br>
+
+Now you have to open the sketch where you want to receive the data, and after initializing firebase as we did before, you can collect data with another function:
 
 ``` ruby
             function gotData(data) {
@@ -161,7 +163,11 @@ You can now check on firebase website if the data are being collected in the rig
             }
  ```   
  </br>
-In this way we collect all the data of the dots “drawn” by people walking around, and we store them in one database. Then we can call them all back everytime we open the results page, drawing all of them over the map in the same exact position. To place them in the proper position we have to use the *latLngToPixel* function, which is readable inside the *gotData()* function itself.
+In this way we collect all the data of the dots “drawn” by people walking around, and we store them in one database.</br>
+
+![screen](assets/screenshot.png)</br>
+
+Then we can call them all back everytime we open the results page, drawing all of them over the map in the same exact position. To place them in the proper position we have to use the *latLngToPixel* function, which is readable inside the *gotData()* function itself.</br>
 </br>
 
 
