@@ -75,24 +75,24 @@ Then in the sketch we overlayed the map over the canvas:</br>
 In this way we were able to draw on the canvas over the map. </br>
 We needed then to write a dot where the location was represented on the map, representing the user location. But we also needed to collect the location by the user:
 </br>
- ``` ruby
-      var point = myMap.latLngToPixel(myLat, myLon)
+
+        var point = myMap.latLngToPixel(myLat, myLon)
    
-   radius = 15;
-   circle(point.x, point.y, radius)
+    radius = 15;
+    circle(point.x, point.y, radius)
 --------------------
-function preload() {
-  milano = loadImage("./mappaMilano.png")
+  function preload() {
+    milano = loadImage("./mappaMilano.png")
 
-  //updates location everytime there's a new one
-  position = watchPosition(positionChanged);
-}
-
-function positionChanged(position) {
-  myLat = position.latitude;
-  myLon = position.longitude;
+   //updates location everytime there's a new one
+   position = watchPosition(positionChanged);
   }
- ```
+
+  function positionChanged(position) {
+    myLat = position.latitude;
+    myLon = position.longitude;
+    }
+
 </br>
 </br>
 **Home page functions?**</br>
