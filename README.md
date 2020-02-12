@@ -53,6 +53,120 @@ The javascript library p5 allows to write the code in a simple, yet creative way
 Firebase is a website that works as a bridge between pages of the app and lets the app collect data, storing them in an online server.</br>
 **JavaScript & Html**</br>
 </br>
+### Code challenges
+**Basic canvas structure (map)**</br>
+We had to set up the main canvas of the tracking page, where the user can walk around, and the results page: we used MapBox to set up a map, and it wasn’t easy to set it up properly. We wanted to have an interactive map, but, with our own knowledge, we couldn’t merge the interactive map with the drawing canvas; moving the map around would have left a track on the canvas, ruining the experience. We looked everywhere for a solution to this problem, but, in the end, we couldn’t find one. That’s why we choose to lock the zoom and the viewport, and we tried to go that way.
+
+We first loaded what we needed in the index:</br>
+ ``` ruby
+    <script src="p5.geolocation.js"></script>
+    <script src="https://unpkg.com/mappa-mundi/dist/mappa.js" type="text/javascript"></script>
+ ```
+</br>
+Then in the sketch we overlayed the map over the canvas:</br>
+ 
+ 
+  ``` ruby
+     myMap = mappa.tileMap(options);
+   myMap.overlay(canvas)
+ ```
+ </br>
+</br>
+In this way we were able to draw on the canvas over the map. </br>
+We needed then to write a dot where the location was represented on the map, representing the user location. But we also needed to collect the location by the user:
+</br>
+
+        var point = myMap.latLngToPixel(myLat, myLon)
+   
+    radius = 15;
+    circle(point.x, point.y, radius)
+    
+    function preload() {
+      milano = loadImage("./mappaMilano.png")
+
+     //updates location everytime there's a new one
+     position = watchPosition(positionChanged);
+     }
+
+    function positionChanged(position) {
+     myLat = position.latitude;
+      myLon = position.longitude;
+      }
+
+</br>
+**Setting up the server for the results**
+ A huge challenge in the making of the app was for sure the server. It took a long time to find a proper way to send each walk data to  a server, in order to have them shown all together in another page. To have the result page we used *Firebase*, a website that can host a database for your projects.
+</br>
+First we had to load the libraries:
+</br>
+``` ruby
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+       https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-database.js"></script>
+ ```    
+</br>
+After loading libraries it’s time to initialize the database and set it up to make it work.
+</br>
+``` ruby
+    //setting up firebase
+      const firebaseConfig = {
+        apiKey: "AIzaSyC-fiV18ijZctY5WrQIllaZmQnNQ7FKf10",
+        authDomain: "mapstract-74411.firebaseapp.com",
+        databaseURL: "https://mapstract-74411.firebaseio.com",
+        projectId: "mapstract-74411",
+        storageBucket: "mapstract-74411.appspot.com",
+        messagingSenderId: "11859346333",
+        appId: "1:11859346333:web:253c37d5f8dfdc7036e574",
+        measurementId: "G-M7G8BVNG1H"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+ ```         
+</br>
+You can send data to the database using a special function.
+</br>
+``` ruby
+        function submitData() {
+          var data = {
+            lat: myLat,
+            lon: myLon,
+            color: listpick,
+            radius: radius
+          }
+          ref = database.ref('pos');
+          ref.push(data);
+        }
+```   
+</br>
+You can now check on firebase website if the data are being collected in the right way; now you have to open the sketch where you want to receive the data, and after initializing firebase as we did before, you can collect data with another function,
+</br>
+``` ruby
+      function gotData(data) {
+        var pos = data.val();
+        var keys = Object.keys(pos)
+        for (var i = 0; i < keys.length; i++) {
+          var k = keys[i];
+          var lat = pos[k].lat
+          var lon = pos[k].lon
+          var col = pos[k].color
+          var rad = pos[k].radius
+          console.log(lat, lon, col, rad)
+          var get = myMap.latLngToPixel(lat, lon);
+          noStroke()
+          fill(colorList[col])
+          circle(get.x, get.y, rad)
+        }
+      }
+```
+</br>
+In this way we collect all the data of the dots “drawn” by people walking around, and we store them in one database. Then we can call them all back everytime we open the results page, drawing all of them over the map in the same exact position. To place them in the proper position we have to use the *latLngToPixel* function, which is readable inside the *gotData()* function itself.
+</br>
+
 
 **Homepage functions**</br>
 We used different hues of grey, the light one as a background, and the darker one for details and texts.</br>
