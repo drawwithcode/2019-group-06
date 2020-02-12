@@ -53,49 +53,7 @@ The javascript library p5 allows to write the code in a simple, yet creative way
 Firebase is a website that works as a bridge between pages of the app and lets the app collect data, storing them in an online server.</br>
 **JavaScript & Html**</br>
 </br>
-### Code challenges
-**Basic canvas structure (map)**</br>
-We had to set up the main canvas of the tracking page, where the user can walk around, and the results page: we used MapBox to set up a map, and it wasn’t easy to set it up properly. We wanted to have an interactive map, but, with our own knowledge, we couldn’t merge the interactive map with the drawing canvas; moving the map around would have left a track on the canvas, ruining the experience. We looked everywhere for a solution to this problem, but, in the end, we couldn’t find one. That’s why we choose to lock the zoom and the viewport, and we tried to go that way.
 
-We first loaded what we needed in the index:</br>
- ``` ruby
-    <script src="p5.geolocation.js"></script>
-    <script src="https://unpkg.com/mappa-mundi/dist/mappa.js" type="text/javascript"></script>
- ```
-</br>
-Then in the sketch we overlayed the map over the canvas:</br>
- 
- 
-  ``` ruby
-     myMap = mappa.tileMap(options);
-   myMap.overlay(canvas)
- ```
- </br>
-</br>
-In this way we were able to draw on the canvas over the map. </br>
-We needed then to write a dot where the location was represented on the map, representing the user location. But we also needed to collect the location by the user:
-</br>
-
-        var point = myMap.latLngToPixel(myLat, myLon)
-   
-    radius = 15;
-    circle(point.x, point.y, radius)
-    
-    function preload() {
-      milano = loadImage("./mappaMilano.png")
-
-     //updates location everytime there's a new one
-     position = watchPosition(positionChanged);
-     }
-
-    function positionChanged(position) {
-     myLat = position.latitude;
-      myLon = position.longitude;
-      }
-
------------------------------------------------------------------------------------------------------------------------
-</br>
-<div></div>
 **Homepage functions**</br>
 We used different hues of grey, the light one as a background, and the darker one for details and texts.</br>
 </br>
