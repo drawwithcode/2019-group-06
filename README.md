@@ -73,8 +73,7 @@ Then in the sketch we overlayed the map over the canvas:</br>
  </br>
 </br>
 In this way we were able to draw on the canvas over the map. </br>
-We needed then to write a dot where the location was represented on the map, representing the user location. But we also needed to collect the location by the user:
-</br>
+We needed then to write a dot where the location was represented on the map, representing the user location. But we also needed to collect the location by the user:</br>
 
         var point = myMap.latLngToPixel(myLat, myLon)
    
@@ -97,8 +96,8 @@ We needed then to write a dot where the location was represented on the map, rep
 **Setting up the server for the results**
  A huge challenge in the making of the app was for sure the server. It took a long time to find a proper way to send each walk data to  a server, in order to have them shown all together in another page. To have the result page we used *Firebase*, a website that can host a database for your projects.
 </br>
-First we had to load the libraries:
-</br>
+First we had to load the libraries:</br>
+
 ``` ruby
   <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
@@ -109,8 +108,8 @@ First we had to load the libraries:
     <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-database.js"></script>
  ```    
 </br>
-After loading libraries it’s time to initialize the database and set it up to make it work.
-</br>
+After loading libraries it’s time to initialize the database and set it up to make it work:
+
 ``` ruby
     //setting up firebase
       const firebaseConfig = {
@@ -128,7 +127,7 @@ After loading libraries it’s time to initialize the database and set it up to 
       firebase.analytics();
  ```         
 </br>
-You can send data to the database using a special function.
+You can send data to the database using a special function:
 </br>
 ``` ruby
         function submitData() {
@@ -141,10 +140,9 @@ You can send data to the database using a special function.
           ref = database.ref('pos');
           ref.push(data);
         }
-```   
+ ```   
 </br>
-You can now check on firebase website if the data are being collected in the right way; now you have to open the sketch where you want to receive the data, and after initializing firebase as we did before, you can collect data with another function,
-</br>
+You can now check on firebase website if the data are being collected in the right way; now you have to open the sketch where you want to receive the data, and after initializing firebase as we did before, you can collect data with another function:
 ``` ruby
       function gotData(data) {
         var pos = data.val();
@@ -162,7 +160,7 @@ You can now check on firebase website if the data are being collected in the rig
           circle(get.x, get.y, rad)
         }
       }
-```
+ ```
 </br>
 In this way we collect all the data of the dots “drawn” by people walking around, and we store them in one database. Then we can call them all back everytime we open the results page, drawing all of them over the map in the same exact position. To place them in the proper position we have to use the *latLngToPixel* function, which is readable inside the *gotData()* function itself.
 </br>
