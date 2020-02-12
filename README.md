@@ -162,13 +162,13 @@ You can now check on firebase website if the data are being collected in the rig
             }
  ```   
  </br>
-In this way we collect all the data of the dots “drawn” by people walking around, and we store them in one database. Then we can call them all back everytime we open the results page, drawing all of them over the map in the same exact position. To place them in the proper position we have to use the *latLngToPixel* function, which is readable inside the *gotData()* function itself.
-</br>
-
+In this way we collect all the data of the dots “drawn” by people walking around, and we store them in one database. Then we can call them all back everytime we open the results page, drawing all of them over the map in the same exact position. To place them in the proper position we have to use the *latLngToPixel* function, which is readable inside the *gotData()* function itself.</br>
 </br>
 **Homepage functions**</br>
-We used different hues of grey, the light one as a background, and the darker one for details and texts.</br>
-</br>
+We used different hues of grey, the light one as a background, and the darker one for details and texts.
+
+
+
 **Animation**</br>
 As the first thing of our app, in the homepage we wanted to represent the idea of movement. So we thought about developing an animation that would recall the idea of dynamicity. We made this animation also to represent people walking around, and to give a preview of the web-app itself.
 </br>
