@@ -95,11 +95,12 @@ We needed then to write a dot where the location was represented on the map, rep
 
 -----------------------------------------------------------------------------------------------------------------------
 </br>
-**Home page functions?**</br>
-WRITE HERE ABOUT HOMEPAGE FUNCTIONS
+**Home page functions?**
+</br>
+Wriuieite.
 </br>
 **Animation**</br>
-FIX THIS ABOUT HOMEPAGE ANIMATION
+FIX THIS ABOUT HOMEPAGE ANIMATION.
 As the first thing of our app, in the homepage we wanted to represent the idea of movement. So we thought about developing an animation that would recall the idea of dynamicity. We made this animation also to represent people walking around, and to give a preview of the web-app itself.
 </br>
 </br>
