@@ -86,7 +86,7 @@ We needed then to write a dot where the location was represented on the map, rep
 
      //updates location everytime there's a new one
      position = watchPosition(positionChanged);
-   }
+     }
 
     function positionChanged(position) {
      myLat = position.latitude;
